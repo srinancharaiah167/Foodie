@@ -1,17 +1,28 @@
-import React from 'react'
-import './AppDownload.css'
-import { assets } from '../../assets/frontend_assets/assets'
+import React, { useContext } from "react";
+import "./AppDownload.css";
+import { assets } from "../../assets/frontend_assets/assets";
+import { ThemeContext } from "../context/ThemeContext";
 
 const AppDownload = () => {
-  return (
-    <div className='appdownload' id='appdownload'>
-        <p>For Better Experience Download <br /> Foodie App</p>
-        <div className="app-download-platforms">
-            <img src={assets.play_store} alt="" />
-            <img src={assets.app_store} alt="" />
-        </div>
-    </div>
-  )
-}
+  const { theme } = useContext(ThemeContext);
 
-export default AppDownload
+  return (
+    <div className="appdownload" id="appdownload">
+      <p>
+        For Better Experience Download <br /> Foodie App
+      </p>
+      <div className="app-download-platforms">
+        <img
+          src={theme === "dark" ? assets.play_store_light : assets.play_store}
+          alt=""
+        />
+        <img
+          src={theme === "dark" ? assets.app_store_light : assets.app_store}
+          alt=""
+        />
+      </div>
+    </div>
+  );
+};
+
+export default AppDownload;
