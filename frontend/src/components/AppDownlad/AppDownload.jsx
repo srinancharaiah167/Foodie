@@ -13,12 +13,14 @@ const AppDownload = () => {
       </p>
       <div className="app-download-platforms">
         <img
-          src={theme === "dark" ? assets.play_store_light : assets.play_store}
+          src={assets.play_store}
           alt=""
+          className={`${theme === "dark" ? "image-dark" : ""}`}
         />
         <img
-          src={theme === "dark" ? assets.app_store_light : assets.app_store}
+          src={assets.app_store}
           alt=""
+          className={`${theme === "dark" ? "image-dark" : ""}`}
         />
       </div>
     </div>
