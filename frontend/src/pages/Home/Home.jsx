@@ -7,6 +7,7 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 
 const Home = () => {
   const [category, setCategory] = useState('All');
+  const [showButton, setShowButton] = useState(false);
  
 
   useEffect(() => {
