@@ -92,6 +92,7 @@ a {
   --hover-box-shadow: hsla(0, 0%, 90%, 0.2);
 }
 
+
 h1,
 h2,
 h3,
@@ -104,3 +105,4 @@ span,
 li {
   color: var(--text-color);
 }
+
