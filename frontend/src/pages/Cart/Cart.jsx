@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
 import "./Cart.css";
+import React, { useContext } from "react";
 import { StoreContext } from "../../components/context/StoreContext";
 import { useNavigate, Link } from "react-router-dom";
 
@@ -10,7 +10,7 @@ const Cart = () => {
   // Check if cart is empty
   const isCartEmpty = getTotalCartAmount() === 0;
 
-  // If cart is empty, show empty cart message
+  
   if (isCartEmpty) {
     return (
       <div className="cart">
