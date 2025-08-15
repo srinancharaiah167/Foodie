@@ -4,7 +4,6 @@ import { FaDollarSign, FaListUl, FaStar, FaShoppingCart } from "react-icons/fa";
 import { StoreContext } from "../context/StoreContext";
 import "./FoodDetail.css";
 
-
 const FoodDetail = () => {
   const { addToCart, food_list } = useContext(StoreContext);
 
@@ -13,14 +12,19 @@ const FoodDetail = () => {
   }, []);
 
   const { id } = useParams();
-  const foodItem = food_list.find(item => item._id === id);  // Use food_list from context
-  console.log("URL ID:", id);
-console.log("Food List IDs:", food_list.map(item => item._id));
-
+  const foodItem = food_list.find(item => item._id === id); 
 
   if (!foodItem) {
     return <div className="food-detail">No food item found.</div>;
   }
+
+  // Function to render tag text & emoji
+  const renderFoodTag = (type) => {
+    if (type === "veg") return <span className="tag veg">🟢 Veg</span>;
+    if (type === "non-veg") return <span className="tag non-veg">🔴 Non-Veg</span>;
+    if (type === "vegan") return <span className="tag vegan">🌱 Vegan</span>;
+    return null;
+  };
 
   return (
     <div className="food-detail-wrapper">
@@ -30,7 +34,9 @@ console.log("Food List IDs:", food_list.map(item => item._id));
         </div>
 
         <div className="food-detail-info">
-          <h1>{foodItem.name}</h1>
+          <h1>
+            {foodItem.name} {renderFoodTag(foodItem.foodType)}
+          </h1>
           <p className="description">{foodItem.description}</p>
 
           <div className="info-section">
